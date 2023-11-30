@@ -9,5 +9,4 @@ public class HomeController {
     public String Hello(){
         return "Welcome to Daily Code Buffer";
     }
-
 }
