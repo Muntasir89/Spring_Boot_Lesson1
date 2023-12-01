@@ -7,5 +7,7 @@ import com.monim.spring_boot.entity.Department;
 public interface DepartmentService {
     public Department saveDepartment(Department department);
 
-    List<Department> fetchDepartmentList();
+    public List<Department> fetchDepartmentList();
+
+    public Department fetchDepartmentById(Long departmentId);
 }
