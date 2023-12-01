@@ -1,6 +1,7 @@
 package com.monim.spring_boot.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,25 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void deleteDepartmentById(Long departmentId) {
         departmentRepository.deleteById(departmentId);
+    }
+
+    @Override
+    public Department updateDepartment(Long departmentId, Department department) {
+        Department deptDB = departmentRepository.findById(departmentId).get();
+
+        if(Objects.nonNull(department.getdepartmentName()) && !"".equalsIgnoreCase(department.getdepartmentName())){
+            deptDB.setdepartmentName(department.getdepartmentName());
+        }
+
+        if(Objects.nonNull(department.getdepartmentAddress()) && !"".equalsIgnoreCase(department.getdepartmentAddress())){
+            deptDB.setdepartmentAddress(department.getdepartmentAddress());
+        }
+
+        if(Objects.nonNull(department.getdepartmentCode()) && !"".equalsIgnoreCase(department.getdepartmentCode())){
+            deptDB.setdepartmentCode(department.getdepartmentCode());
+        }
+
+        return departmentRepository.save(deptDB);
     }
     
 }
