@@ -1,6 +1,7 @@
 package com.monim.spring_boot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +31,11 @@ public class DepartmentController {
     @GetMapping("/department/{id}")
     public Department  fetchDepartmentById(@PathVariable("id") Long departmentId){
         return departmentService.fetchDepartmentById(departmentId);
+    }
+
+    @DeleteMapping("/department/{id}")
+    public String deleteDepartmentById(@PathVariable("id") Long departmentId){
+        departmentService.deleteDepartmentById(departmentId);
+        return "Department deleted Successfully!!";
     }
 }
