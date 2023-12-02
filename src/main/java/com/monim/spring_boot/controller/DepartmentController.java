@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.monim.spring_boot.entity.Department;
 import com.monim.spring_boot.service.DepartmentService;
+
+import jakarta.validation.Valid;
+
 import java.util.List;;
 
 @RestController
@@ -20,7 +23,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/department")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@Valid @RequestBody Department department){
         return departmentService.saveDepartment(department);
     }
 
@@ -45,7 +48,7 @@ public class DepartmentController {
         return departmentService.updateDepartment(departmentId, department);
     }
 
-    @GetMapping("/departments/name/{name}")
+    @GetMapping("/department/name/{name}")
     public Department fetchDepartmentByName(@PathVariable("name")String departmentName){
         return departmentService.fetchDepartmentByName(departmentName);
     }
