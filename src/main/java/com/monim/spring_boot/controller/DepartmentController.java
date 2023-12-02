@@ -1,5 +1,7 @@
 package com.monim.spring_boot.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +24,17 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
+
     @PostMapping("/department")
     public Department saveDepartment(@Valid @RequestBody Department department){
+        LOGGER.info("Inside saveDepartment of DepartmentController");
         return departmentService.saveDepartment(department);
     }
-
+    
     @GetMapping("/department")
     public List<Department>  fetchDepartmentList(){
+        LOGGER.info("Inside fetchDepartmentList of DepartmentController");
         return departmentService.fetchDepartmentList();
     }
 
