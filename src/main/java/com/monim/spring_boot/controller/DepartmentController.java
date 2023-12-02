@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.monim.spring_boot.entity.Department;
+import com.monim.spring_boot.error.DepartmentNotFoundException;
 import com.monim.spring_boot.service.DepartmentService;
 
 import jakarta.validation.Valid;
@@ -39,7 +40,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/department/{id}")
-    public Department  fetchDepartmentById(@PathVariable("id") Long departmentId){
+    public Department  fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException{
         return departmentService.fetchDepartmentById(departmentId);
     }
 
