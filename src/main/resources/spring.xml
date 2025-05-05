@@ -4,13 +4,14 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="dev" class="com.monim.spring_boot.Dev">
-        <constructor-arg ref="lap1"/>
-        <property name="age" value="11"/>
+    <bean id="dev" class="com.monim.spring_boot.Dev" autowire="byType">
+        <!-- <property name="com" ref="desk1"/> -->
     </bean>
 
-    <bean id="lap1" class="com.monim.spring_boot.Laptop">
-        <property name="brand" value="Dell"/>
-        <property name="ram" value="16GB"/>
+    <bean id="com" class="com.monim.spring_boot.Laptop">
+    </bean>
+
+    <bean id="com1" class="com.monim.spring_boot.Desktop" primary="true">
+     
     </bean>
 </beans>
