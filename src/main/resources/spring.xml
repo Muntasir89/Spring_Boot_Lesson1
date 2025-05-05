@@ -5,6 +5,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="dev" class="com.monim.spring_boot.Dev">
-        <constructor-arg name="age" value="12" />
+        <property name="age" value="11"/>
     </bean>
 </beans>

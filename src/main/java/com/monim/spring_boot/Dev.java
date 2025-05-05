@@ -20,6 +20,7 @@ public class Dev {
     }
     public void setAge(int age) {
         this.age = age;
+        System.out.println("Age set to: " + age);
     }
 
     public void build() {
