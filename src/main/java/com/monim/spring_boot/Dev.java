@@ -2,7 +2,7 @@ package com.monim.spring_boot;
 
 public class Dev {
 
-    // private Laptop laptop;
+    private Laptop laptop;
     private int age;
 
 
@@ -10,9 +10,9 @@ public class Dev {
         System.out.println("Dev class constructor called");
     }
 
-    public Dev(int age) {
+    public Dev(Laptop laptop) {
         System.out.println("Dev class constructor called with age: " + age);
-        this.age = age;
+        this.laptop = laptop;
     }
 
     public int getAge() {
@@ -21,6 +21,15 @@ public class Dev {
     public void setAge(int age) {
         this.age = age;
         System.out.println("Age set to: " + age);
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+        System.out.println("Laptop set to: " + laptop);
     }
 
     public void build() {
